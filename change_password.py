@@ -84,37 +84,29 @@ def digit_limit_check_in_pswd(psd):
 
 def changePassword(oldp, psd):
     if verify_minimum_18_char_len(psd) == False:
-        print 'invalid new password/nEnter valid password with 18-20 chars and password shouldnt be empty\ncannot reset password'
-        print 'False'
+        print 'invalid new password \n Enter valid password with 18-20 chars and password shouldnt be empty \n cannot reset password'
         return False
     if verify_atleast_one_lower(psd) == False:
-        print 'atleast one lower case alphabet is expected\ncannot reset password'
-        print 'False'
+        print 'atleast one lower case alphabet is expected \n cannot reset password'
         return False
     if verify_atleast_one_upper(psd) == False:
-        print 'atleast one upper case alphabet is expected\ncannot reset password'
-        print 'False'
+        print 'atleast one upper case alphabet is expected \n cannot reset password'
         return False
     if verify_atleast_one_digit(psd) == False:
-        print 'atleast one digit is expected\ncannot reset password'
-        print 'False'
+        print 'atleast one digit is expected \n cannot reset password'
         return False
     if verify_atleast_one_specia_char(psd) == False:
-        print 'atleast one special char is expected and only from ! @ # $  & *\ncannot reset password'
-        print 'False'
+        print 'atleast one special char is expected and only from ! @ # $  & * \n cannot reset password'
         return False
     if duplicate_counter(psd) == False:
-        print 'please dont repeat single char more than 4 tines\ncannot reset password'
-        print 'False'
+        print 'please dont repeat single char more than 4 tines \n cannot reset password'
         return False
     if match_old_password(oldp, psd) == False:
-        print 'password shouldnt match old password upto 80%\ncannot reset password'
-        print 'False'
+        print 'password shouldnt match old password upto 80% \n cannot reset password'
         return False
     if digit_limit_check_in_pswd(psd) == False:
-        print 'new password shouldnt contain more than 50% digits\ncannot reset password'
-        print 'False'
+        print 'new password shouldnt contain more than 50% digits \n cannot reset password'
         return False
-    print 'True\ncan reset password'
+    print 'can reset password'
     return True
 

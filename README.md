@@ -18,7 +18,7 @@ run the above command in terminal.
 once the git clone is complete open the cloned repo in the terminal.
 To run all the test modules
 type the following command and hit: 
->> python -m unittest
+>> python -m unittest discover
 To run a single test module
 >> python -m unittest test.test_module_name
 To run a single test case in a module
