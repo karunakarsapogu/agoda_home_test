@@ -14,6 +14,9 @@ def verify_minimum_18_char_len(psd):
 
 
 def verify_atleast_one_lower(psd):
+    '''
+        method to verify atleast one lower case alphabet in new password
+    '''
     lowerCaseCount = 0
     for x in psd:
         if x.islower() == True:
@@ -22,6 +25,9 @@ def verify_atleast_one_lower(psd):
 
 
 def verify_atleast_one_upper(psd):
+    '''
+        method to verify atleast one upper case alphabet in new password
+    '''
     upperCaseCount = 0
     for x in psd:
         if x.isupper() == True:
@@ -30,6 +36,9 @@ def verify_atleast_one_upper(psd):
 
 
 def verify_atleast_one_digit(psd):
+    '''
+        method to verify atleast one digit in alphabet in new password
+    '''
     digitCount = 0
     for x in psd:
         if x.isdigit() == True:
@@ -38,10 +47,16 @@ def verify_atleast_one_digit(psd):
 
 
 def verify_valid_special_char(psd):
+    '''
+        method to find out if there are any invalid special char in new password
+    '''
     return True if re.match("^[a-zA-Z0-9!@#$&*]*$", psd) else False
 
 
 def verify_atleast_one_specia_char(psd):
+    '''
+        method to verify atleast one valid special char is present in new password
+    '''
     specialCharCount = 0
     special_chars = '!@#$&*'
     if verify_valid_special_char(psd) == True:
@@ -52,6 +67,9 @@ def verify_atleast_one_specia_char(psd):
 
 
 def duplicate_counter(psd):
+    '''
+        method to count duplicates in a new password
+    '''
     unique_keys = set(psd)
     count_char_repition = {}
     for x in unique_keys:
@@ -65,16 +83,25 @@ def duplicate_counter(psd):
 
 
 def similar_percentage(oldPsd, newp):
+    '''
+        method to find out the ratio of the old and new password comparrison ratio
+    '''
     return SequenceMatcher(None, oldPsd, newp).ratio()*100
 
 
 def match_old_password(old_psd, new_psd):
+    '''
+        method to verify old password doesnt match with new password with 80% or more
+    '''
     if similar_percentage(old_psd, new_psd) >= 80.00:
         return False
     return True
         
 
 def digit_limit_check_in_pswd(psd):
+    '''
+        method to verify password doesnt contains 50% or more digits in a new password
+    '''
     sumOfDigit = sum(c.isdigit() for c in psd)
     totalPermittedLenOfStringWithDigit = len(psd)/2
     if sumOfDigit > totalPermittedLenOfStringWithDigit:
@@ -83,6 +110,9 @@ def digit_limit_check_in_pswd(psd):
 
 
 def changePassword(oldp, psd):
+    '''
+        function to test the new password validity to allow the user to change password or not
+    '''
     if verify_minimum_18_char_len(psd) == False:
         print 'invalid new password \n Enter valid password with 18-20 chars and password shouldnt be empty \n cannot reset password'
         return False
